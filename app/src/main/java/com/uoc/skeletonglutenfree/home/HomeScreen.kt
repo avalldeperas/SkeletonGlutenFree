@@ -28,12 +28,12 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
             navController = navController,
             startDestination = Screens.MapScreen.name
         ) {
-            test(navController)
+            homeNav(navController)
         }
     }
 }
 
-fun NavGraphBuilder.test(navController: NavHostController) {
+fun NavGraphBuilder.homeNav(navController: NavHostController) {
 
     composable(Screens.FavoriteScreen.name) {
         FavoriteScreen(navController)

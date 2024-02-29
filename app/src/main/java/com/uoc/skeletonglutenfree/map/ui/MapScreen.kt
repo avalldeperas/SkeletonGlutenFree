@@ -1,6 +1,5 @@
 package com.uoc.skeletonglutenfree.map.ui
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,7 +14,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,31 +28,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.uoc.skeletonglutenfree.favourite.ui.FavoriteScreen
 import com.uoc.skeletonglutenfree.navigation.Screens
-import com.uoc.skeletonglutenfree.profile.ui.EditProfileScreen
-import com.uoc.skeletonglutenfree.profile.ui.ProfileScreen
-
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@Composable
-fun MapScreen(navController: NavHostController) {
-
-//    Scaffold(
-////        bottomBar = { BottomNavBar() }
-//    ) {
-//        NavHost(
-//            navController = navController,
-//            startDestination = Screens.MapScreen.name
-//        ) {
-//            navigationGraph(navController)
-//        }
-//    }
-}
 
 @Composable
 fun MyMap(navController: NavHostController) {
@@ -77,7 +52,6 @@ fun MyMap(navController: NavHostController) {
 
 @Composable
 fun BottomNavBar(navController: NavHostController) {
-//    val navController = rememberNavController()
     var navigationSelectedItem by rememberSaveable { mutableIntStateOf(0) }
     NavigationBar {
         //getting the list of bottom navigation items for our data class
@@ -105,34 +79,6 @@ fun BottomNavBar(navController: NavHostController) {
                 }
             )
         }
-    }
-}
-
-// NavGraph
-fun NavGraphBuilder.navigationGraph(navController: NavHostController) {
-
-    composable(Screens.FavoriteScreen.name) {
-        FavoriteScreen(navController)
-    }
-
-    composable(Screens.MapScreen.name) {
-        MyMap(navController)
-    }
-
-    composable(Screens.ListScreen.name) {
-        ListScreen(navController)
-    }
-
-    composable(Screens.DetailRestaurantScreen.name) {
-        DetailRestaurantScreen(navController)
-    }
-
-    composable(Screens.ProfileScreen.name) {
-        ProfileScreen(navController)
-    }
-
-    composable(Screens.EditProfileScreen.name) {
-        EditProfileScreen(navController)
     }
 }
 
