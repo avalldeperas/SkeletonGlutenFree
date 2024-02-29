@@ -94,7 +94,7 @@ data class BottomNavigationItem(
             BottomNavigationItem(
                 label = "Search",
                 icon = Icons.Filled.Search,
-                route = Screens.MapScreen.name
+                route = Screens.HomeScreen.name
             ),
             BottomNavigationItem(
                 label = "Favorite",

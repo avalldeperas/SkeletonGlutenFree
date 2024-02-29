@@ -16,12 +16,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.uoc.skeletonglutenfree.navigation.Screens
 
 @Composable
-fun LoginScreen(navController: NavController) {
+fun LoginScreen(
+    onLogin: () -> Unit,
+    onForgotPassword: () -> Unit,
+    onRegister: () -> Unit
+) {
     Surface(modifier = Modifier.fillMaxSize(), color = Color.Red) {
         Column(
             Modifier.fillMaxSize(),
@@ -30,16 +31,16 @@ fun LoginScreen(navController: NavController) {
         ) {
             Text(text = "Login Screen", fontSize = 24.sp)
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
-            Button(onClick = { navController.navigate(Screens.MapScreen.name) }) {
+            Button(onClick = { onLogin() }) {
                 Text(text = "Login")
             }
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
             Text(text = "Forgot Password?", modifier = Modifier.clickable {
-                navController.navigate(Screens.ForgotPassword.name)
+                onForgotPassword()
             })
             Spacer(modifier = Modifier.padding(vertical = 32.dp))
             Text(text = "Don't have an account? Sign In", modifier = Modifier.clickable {
-                navController.navigate(Screens.SignUpScreen.name)
+                onRegister()
             })
 
         }
@@ -49,5 +50,5 @@ fun LoginScreen(navController: NavController) {
 @Preview
 @Composable
 fun LoginScreenPreview() {
-    LoginScreen(navController = rememberNavController())
+    LoginScreen({}, {}, {})
 }

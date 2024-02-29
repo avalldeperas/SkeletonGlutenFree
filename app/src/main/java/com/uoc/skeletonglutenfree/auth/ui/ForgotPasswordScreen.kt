@@ -14,11 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import com.uoc.skeletonglutenfree.navigation.Screens
 
 @Composable
-fun ForgotPasswordScreen(navController: NavController) {
+fun ForgotPasswordScreen(onReturnToLogin: () -> Unit) {
     Surface(modifier = Modifier.fillMaxSize(), color = Color.Cyan) {
         Column(
             Modifier.fillMaxSize(),
@@ -27,10 +25,7 @@ fun ForgotPasswordScreen(navController: NavController) {
         ) {
             Text(text = "Forgot Password Screen", fontSize = 24.sp)
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
-            Text(text = "Back", modifier = Modifier.clickable {
-                navController.navigate(Screens.LoginScreen.name)
-            })
+            Text(text = "Back", modifier = Modifier.clickable { onReturnToLogin() })
         }
     }
-
 }

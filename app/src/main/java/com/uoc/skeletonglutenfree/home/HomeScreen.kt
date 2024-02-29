@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.uoc.skeletonglutenfree.auth.ui.LoginScreen
 import com.uoc.skeletonglutenfree.favourite.ui.FavoriteScreen
 import com.uoc.skeletonglutenfree.map.ui.BottomNavBar
 import com.uoc.skeletonglutenfree.map.ui.DetailRestaurantScreen
@@ -26,7 +27,7 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
     ) {
         NavHost(
             navController = navController,
-            startDestination = Screens.MapScreen.name
+            startDestination = Screens.HomeScreen.name
         ) {
             homeNav(navController)
         }
@@ -39,7 +40,7 @@ fun NavGraphBuilder.homeNav(navController: NavHostController) {
         FavoriteScreen(navController)
     }
 
-    composable(Screens.MapScreen.name) {
+    composable(Screens.HomeScreen.name) {
         MyMap(navController)
     }
 
@@ -57,5 +58,9 @@ fun NavGraphBuilder.homeNav(navController: NavHostController) {
 
     composable(Screens.EditProfileScreen.name) {
         EditProfileScreen(navController)
+    }
+
+    composable(Screens.LoginScreen.name) {
+        LoginScreen({ }, {}, {})
     }
 }

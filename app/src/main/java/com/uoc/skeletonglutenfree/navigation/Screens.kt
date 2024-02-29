@@ -6,7 +6,6 @@ enum class Screens() {
     ForgotPassword,
     HomeScreen,
     FavoriteScreen,
-    MapScreen,
     ListScreen,
     DetailRestaurantScreen,
     ProfileScreen,

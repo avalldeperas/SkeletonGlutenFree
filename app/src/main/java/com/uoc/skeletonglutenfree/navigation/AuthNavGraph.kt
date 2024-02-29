@@ -1,6 +1,5 @@
 package com.uoc.skeletonglutenfree.navigation
 
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
@@ -15,15 +14,24 @@ fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
         startDestination = Screens.LoginScreen.name
     ) {
         composable(Screens.LoginScreen.name) {
-            LoginScreen(navController)
+            LoginScreen(
+                onLogin = { navController.navigate(Screens.HomeScreen.name) },
+                onRegister = { navController.navigate(Screens.SignUpScreen.name) },
+                onForgotPassword = { navController.navigate(Screens.ForgotPassword.name) }
+            )
         }
 
         composable(Screens.SignUpScreen.name) {
-            SignUpScreen(navController)
+            SignUpScreen(
+                onRegister = { navController.navigate(Screens.HomeScreen.name) },
+                onReturnToLogin = { navController.navigate(Screens.LoginScreen.name) }
+            )
         }
 
         composable(Screens.ForgotPassword.name) {
-            ForgotPasswordScreen(navController)
+            ForgotPasswordScreen(
+                onReturnToLogin = { navController.navigate(Screens.LoginScreen.name) }
+            )
         }
     }
 }

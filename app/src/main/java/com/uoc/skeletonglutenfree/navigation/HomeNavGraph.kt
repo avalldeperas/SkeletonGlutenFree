@@ -30,7 +30,7 @@ fun NavGraphBuilder.navigationGraph(navController: NavHostController) {
         FavoriteScreen(navController)
     }
 
-    composable(Screens.MapScreen.name) {
+    composable(Screens.HomeScreen.name) {
         MyMap(navController)
     }
 

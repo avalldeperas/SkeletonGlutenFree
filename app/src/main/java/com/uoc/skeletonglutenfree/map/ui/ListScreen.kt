@@ -30,7 +30,7 @@ fun ListScreen(navController: NavController) {
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
 
-            Button(onClick = { navController.navigate(Screens.MapScreen.name) }) {
+            Button(onClick = { navController.navigate(Screens.HomeScreen.name) }) {
                 Text(text = "Map")
             }
         }

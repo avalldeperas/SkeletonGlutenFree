@@ -1,8 +1,6 @@
 package com.uoc.skeletonglutenfree.profile.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -33,6 +31,14 @@ fun ProfileScreen(navController: NavController) {
 
             Button(onClick = { navController.navigate(Screens.EditProfileScreen.name) }) {
                 Text(text = "Edit profile")
+            }
+
+            Button(onClick = {
+                navController.navigate(Screens.LoginScreen.name) {
+                    popUpTo(0)
+                }
+            }) {
+                Text(text = "Logout")
             }
         }
     }
