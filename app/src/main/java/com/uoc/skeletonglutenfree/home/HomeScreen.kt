@@ -21,7 +21,6 @@ import com.uoc.skeletonglutenfree.profile.ui.ProfileScreen
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(navController: NavHostController = rememberNavController()) {
-
     Scaffold(
         bottomBar = { BottomNavBar(navController) }
     ) {
@@ -37,27 +36,38 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
 fun NavGraphBuilder.homeNav(navController: NavHostController) {
 
     composable(Screens.FavoriteScreen.name) {
-        FavoriteScreen(navController)
+        FavoriteScreen()
     }
 
     composable(Screens.HomeScreen.name) {
-        MyMap(navController)
+        MyMap(onPressList = { navController.navigate(Screens.ListScreen.name) })
     }
 
     composable(Screens.ListScreen.name) {
-        ListScreen(navController)
+        ListScreen(onMapPress = { navController.navigate(Screens.HomeScreen.name) })
     }
 
     composable(Screens.DetailRestaurantScreen.name) {
-        DetailRestaurantScreen(navController)
+        DetailRestaurantScreen(onPressBack = { navController.popBackStack() })
     }
 
     composable(Screens.ProfileScreen.name) {
-        ProfileScreen(navController)
+        ProfileScreen(
+            onEditProfile = { navController.navigate(Screens.EditProfileScreen.name) },
+            onLogout = {
+                // TODO: pending to implement better, currently going to the default login screen
+                navController.navigate(Screens.LoginScreen.name) {
+                    popUpTo(0)
+                }
+            }
+        )
     }
 
     composable(Screens.EditProfileScreen.name) {
-        EditProfileScreen(navController)
+        EditProfileScreen(
+            onPressBack = { navController.popBackStack() },
+            onSaveProfile = {}
+        )
     }
 
     composable(Screens.LoginScreen.name) {

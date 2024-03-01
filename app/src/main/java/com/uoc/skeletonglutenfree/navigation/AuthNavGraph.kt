@@ -24,13 +24,13 @@ fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
         composable(Screens.SignUpScreen.name) {
             SignUpScreen(
                 onRegister = { navController.navigate(Screens.HomeScreen.name) },
-                onReturnToLogin = { navController.navigate(Screens.LoginScreen.name) }
+                onReturnToLogin = { navController.popBackStack() }
             )
         }
 
         composable(Screens.ForgotPassword.name) {
             ForgotPasswordScreen(
-                onReturnToLogin = { navController.navigate(Screens.LoginScreen.name) }
+                onReturnToLogin = { navController.popBackStack() }
             )
         }
     }

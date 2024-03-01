@@ -32,7 +32,7 @@ import androidx.navigation.NavHostController
 import com.uoc.skeletonglutenfree.navigation.Screens
 
 @Composable
-fun MyMap(navController: NavHostController) {
+fun MyMap(onPressList: () -> Unit) {
     Surface(modifier = Modifier.fillMaxSize(), color = Color.Green) {
         Column(
             Modifier.fillMaxSize(),
@@ -41,10 +41,13 @@ fun MyMap(navController: NavHostController) {
         ) {
             Text(text = "Map Screen", fontSize = 24.sp)
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
+            Button(onClick = { onPressList() }) {
+                Text(text = "List")
+            }
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
 
-            Button(onClick = { navController.navigate(Screens.ListScreen.name) }) {
-                Text(text = "List")
+            Button(onClick = { onPressList() }) {
+                Text(text = "Marker")
             }
         }
     }

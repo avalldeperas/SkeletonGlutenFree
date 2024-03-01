@@ -14,11 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import com.uoc.skeletonglutenfree.navigation.Screens
 
 @Composable
-fun ProfileScreen(navController: NavController) {
+fun ProfileScreen(onEditProfile: () -> Unit, onLogout: () -> Unit) {
     Surface(modifier = Modifier.fillMaxSize(), color = Color.Green) {
         Column(
             Modifier.fillMaxSize(),
@@ -29,15 +27,11 @@ fun ProfileScreen(navController: NavController) {
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
 
-            Button(onClick = { navController.navigate(Screens.EditProfileScreen.name) }) {
+            Button(onClick = { onEditProfile() }) {
                 Text(text = "Edit profile")
             }
 
-            Button(onClick = {
-                navController.navigate(Screens.LoginScreen.name) {
-                    popUpTo(0)
-                }
-            }) {
+            Button(onClick = { onLogout() }) {
                 Text(text = "Logout")
             }
         }

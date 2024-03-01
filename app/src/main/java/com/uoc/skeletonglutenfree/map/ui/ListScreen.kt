@@ -1,6 +1,5 @@
 package com.uoc.skeletonglutenfree.map.ui
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,11 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.uoc.skeletonglutenfree.navigation.Screens
 
 @Composable
-fun ListScreen(navController: NavController) {
+fun ListScreen(onMapPress: () -> Unit) {
     Surface(modifier = Modifier.fillMaxSize(), color = Color.Yellow) {
         Column(
             Modifier.fillMaxSize(),
@@ -30,7 +28,7 @@ fun ListScreen(navController: NavController) {
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
 
-            Button(onClick = { navController.navigate(Screens.HomeScreen.name) }) {
+            Button(onClick = { onMapPress() }) {
                 Text(text = "Map")
             }
         }

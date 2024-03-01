@@ -75,9 +75,11 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
     // dagger
-    val dagger_version = "2.44"
+    val dagger_version = "2.48"
+    val dagger_nav_version = "1.2.0"
     implementation("com.google.dagger:hilt-android:$dagger_version")
     kapt("com.google.dagger:hilt-android-compiler:$dagger_version")
+    implementation("androidx.hilt:hilt-navigation-compose:$dagger_nav_version")
 }
 
 kapt {

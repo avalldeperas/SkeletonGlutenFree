@@ -1,9 +1,14 @@
 package com.uoc.skeletonglutenfree.map.ui
 
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 
 @Composable
-fun DetailRestaurantScreen(navController: NavController) {
+fun DetailRestaurantScreen(onPressBack: () -> Unit) {
+
+    Button(onClick = { onPressBack() }) {
+        Text("Go Back")
+    }
 
 }
