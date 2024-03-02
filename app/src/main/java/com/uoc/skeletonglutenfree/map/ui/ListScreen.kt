@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
@@ -17,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.uoc.skeletonglutenfree.navigation.Screens
 
 @Composable
-fun ListScreen(onMapPress: () -> Unit) {
+fun ListScreen(onMapPress: () -> Unit, navigateToDetail: () -> Unit) {
     Surface(modifier = Modifier.fillMaxSize(), color = Color.Yellow) {
         Column(
             Modifier.fillMaxSize(),
@@ -26,10 +27,16 @@ fun ListScreen(onMapPress: () -> Unit) {
         ) {
             Text(text = "List Screen", fontSize = 24.sp)
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
-            Spacer(modifier = Modifier.padding(vertical = 16.dp))
-
             Button(onClick = { onMapPress() }) {
                 Text(text = "Map")
+            }
+            Spacer(modifier = Modifier.padding(vertical = 16.dp))
+
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { navigateToDetail() }
+            ) {
+                Text(text = "Racó del Pla Detall")
             }
         }
     }

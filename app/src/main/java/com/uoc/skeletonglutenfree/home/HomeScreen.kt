@@ -1,8 +1,9 @@
 package com.uoc.skeletonglutenfree.home
 
-import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -18,13 +19,13 @@ import com.uoc.skeletonglutenfree.navigation.Screens
 import com.uoc.skeletonglutenfree.profile.ui.EditProfileScreen
 import com.uoc.skeletonglutenfree.profile.ui.ProfileScreen
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(navController: NavHostController = rememberNavController()) {
     Scaffold(
         bottomBar = { BottomNavBar(navController) }
-    ) {
+    ) { paddingValues ->
         NavHost(
+            modifier = Modifier.padding(paddingValues),
             navController = navController,
             startDestination = Screens.HomeScreen.name
         ) {
@@ -40,11 +41,17 @@ fun NavGraphBuilder.homeNav(navController: NavHostController) {
     }
 
     composable(Screens.HomeScreen.name) {
-        MyMap(onPressList = { navController.navigate(Screens.ListScreen.name) })
+        MyMap(
+            onPressList = { navController.navigate(Screens.ListScreen.name) },
+            navigateToDetail = { navController.navigate(Screens.DetailRestaurantScreen.name) }
+        )
     }
 
     composable(Screens.ListScreen.name) {
-        ListScreen(onMapPress = { navController.navigate(Screens.HomeScreen.name) })
+        ListScreen(
+            onMapPress = { navController.navigate(Screens.HomeScreen.name) },
+            navigateToDetail = { navController.navigate(Screens.DetailRestaurantScreen.name) }
+        )
     }
 
     composable(Screens.DetailRestaurantScreen.name) {

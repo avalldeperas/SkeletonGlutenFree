@@ -9,9 +9,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Surface
@@ -32,7 +34,7 @@ import androidx.navigation.NavHostController
 import com.uoc.skeletonglutenfree.navigation.Screens
 
 @Composable
-fun MyMap(onPressList: () -> Unit) {
+fun MyMap(onPressList: () -> Unit, navigateToDetail: () -> Unit) {
     Surface(modifier = Modifier.fillMaxSize(), color = Color.Green) {
         Column(
             Modifier.fillMaxSize(),
@@ -46,8 +48,8 @@ fun MyMap(onPressList: () -> Unit) {
             }
             Spacer(modifier = Modifier.padding(vertical = 16.dp))
 
-            Button(onClick = { onPressList() }) {
-                Text(text = "Marker")
+            IconButton(onClick = { navigateToDetail() }) {
+                Icon(imageVector = Icons.Default.Info, contentDescription = "restaurantMarker")
             }
         }
     }
