@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SkeletonGlutenFree</string>
     <string name="random_long_text">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknowntypesetter in the 15th century who is thought to have scrambled parts of Ciceros DeFinibus Bonorum et Malorum for use in a type specimen book.</string>
+    <string name="to_edit_profile_text">Edit Profile</string>
+    <string name="logout_btn_text">Logout</string>
+    <string name="profile_image">profile-image</string>
+    <string name="profile_screen_header">Profile Screen</string>
+    <string name="edit_profile_header">Edit Profile Screen</string>
 </resources>
